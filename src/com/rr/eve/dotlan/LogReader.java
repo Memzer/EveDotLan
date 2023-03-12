@@ -36,8 +36,7 @@ public class LogReader extends Thread {
                     String properLine = b.toString();
                     if(properLine.length() > 0) {
                         if(properLine.contains("EVE System > Channel changed to Local : ")) {
-                            properLine = properLine.replaceAll(" ","");
-                            systemName = properLine.substring(properLine.lastIndexOf(":")+1);
+                            systemName = properLine.substring(properLine.lastIndexOf(":")+2);
                             if(reachedEnd) {
                                 main.handleSystemChange(systemName);
                             }
